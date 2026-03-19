@@ -24,6 +24,15 @@
     .nav-right a { color: var(--grey); text-decoration: none; transition: color .2s; display: flex; align-items: center; }
     .nav-right a:hover { color: var(--gold); }
     .btn-nav { background: linear-gradient(135deg,var(--gold),#d97706); color: var(--deep) !important; font-weight: 800; padding: 9px 20px; border-radius: 100px; font-size: .82rem; }
+    /* Shop dropdown */
+    .shop-dropdown { position: relative; }
+    .shop-dropdown .btn-nav { cursor: pointer; display: flex; align-items: center; gap: 6px; }
+    .shop-dropdown .btn-nav::after { content: "▾"; font-size: .75rem; }
+    .shop-menu { display: none; position: absolute; top: calc(100% + 10px); right: 0; background: #1e0a3c; border: 1px solid rgba(245,158,11,.4); border-radius: 14px; overflow: hidden; min-width: 170px; box-shadow: 0 12px 32px rgba(0,0,0,.5); z-index: 200; }
+    .shop-menu a { display: flex; align-items: center; gap: 10px; padding: 13px 18px; color: var(--white); text-decoration: none; font-size: .88rem; font-weight: 600; transition: background .15s; }
+    .shop-menu a:hover { background: rgba(245,158,11,.12); color: var(--gold); }
+    .shop-menu a svg { flex-shrink: 0; }
+    .shop-dropdown:hover .shop-menu, .shop-dropdown:focus-within .shop-menu { display: block; }
 
     /* HERO */
     .hero { position: relative; z-index: 1; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 120px 6% 80px; background: radial-gradient(ellipse at 50% 60%, rgba(26,8,58,.9) 0%, rgba(13,1,32,0) 70%); }
@@ -113,10 +122,19 @@
     <a href="https://x.com/CosmicEmpireHQ" target="_blank" aria-label="X / Twitter">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
     </a>
-    <a href="https://www.facebook.com/CosmicEmpireHQ" target="_blank" aria-label="Facebook">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-    </a>
-    <a href="https://cosmicdrive.gumroad.com" target="_blank" class="btn-nav">Shop Now</a>
+    <div class="shop-dropdown">
+      <span class="btn-nav">Shop Now</span>
+      <div class="shop-menu">
+        <a href="https://cosmicdrive.gumroad.com" target="_blank">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0zm5.5 14.4c-.6 1.8-2.2 3.1-4.1 3.4v1.4h-1.5v-1.4c-2.3-.4-4-2.3-4-4.6h2c0 1.5 1.1 2.6 2.6 2.6h.5c1.4 0 2.6-1.1 2.6-2.4 0-1-.6-1.8-1.6-2.1l-3-.9C9.6 9.9 8.5 8.5 8.5 6.9c0-2.1 1.6-3.8 3.5-4V1.5h1.5v1.4c1.9.4 3.3 2 3.3 3.9h-2c0-1.2-.9-2.1-2.1-2.1H12c-1.2 0-2.1.9-2.1 2.1 0 .9.6 1.7 1.5 2l3 .9c1.6.5 2.7 2 2.7 3.6 0 .3 0 .5-.1.7z"/></svg>
+          Gumroad Store
+        </a>
+        <a href="https://www.etsy.com/shop/CosmicEmpireHQ" target="_blank">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M11.424 0C5.297 0 0 5.296 0 11.424c0 6.127 5.297 11.424 11.424 11.424S22.848 17.55 22.848 11.424C22.848 5.296 17.55 0 11.424 0zm5.593 7.27c0 .193-.084.302-.302.302h-1.66c-.109 0-.109.084-.109.193v4.578c0 1.246-.878 1.934-1.959 1.934-.604 0-1.016-.192-1.304-.467l-.399.357c-.275.248-.604.413-1.041.413-.74 0-1.289-.494-1.289-1.316V7.765c0-.11 0-.193-.109-.193H7.193c-.22 0-.303-.11-.303-.303V6.39c0-.193.083-.304.303-.304h1.649c.11 0 .11-.083.11-.192V4.358c0-.22.082-.304.3-.304h.962c.22 0 .303.083.303.304v1.535c0 .11 0 .193.109.193h1.84c.219 0 .301.11.301.304v.879c0 .193-.082.303-.301.303h-1.84c-.11 0-.11.083-.11.192v4.469c0 .248.138.385.358.385.165 0 .302-.082.412-.192l.384-.358c-.192-.302-.302-.659-.302-1.07V7.765c0-.11 0-.193-.11-.193h-1.04c-.22 0-.303-.11-.303-.303V6.39c0-.193.082-.304.302-.304h1.04c.11 0 .11-.083.11-.192V4.358c0-.22.082-.304.302-.304h.961c.22 0 .303.083.303.304v1.535c0 .11 0 .193.11.193h1.948c.22 0 .301.11.301.304v.879z"/></svg>
+          Etsy Store
+        </a>
+      </div>
+    </div>
   </div>
 </nav>
 
@@ -246,12 +264,10 @@
     <a href="https://x.com/CosmicEmpireHQ" target="_blank" aria-label="X">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
     </a>
-    <a href="https://www.facebook.com/CosmicEmpireHQ" target="_blank" aria-label="Facebook">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-    </a>
   </div>
   <div class="footer-links">
     <a href="https://cosmicdrive.gumroad.com" target="_blank">Gumroad Shop</a>
+    <a href="https://www.etsy.com/shop/CosmicEmpireHQ" target="_blank">Etsy Store</a>
     <a href="#products">Products</a>
     <a href="mailto:cosmicmotivation26@gmail.com">Contact</a>
   </div>
